@@ -5,6 +5,19 @@ import subprocess
 
 @tool
 def add_dependencies(dependencies: List[str]) -> str:
+    """
+    Install the given Python packages into the environment.
+
+    Parameters:
+        dependencies (List[str]):
+            A list of Python package names to install. Each name must match the 
+            corresponding package name on PyPI.
+
+    Returns:
+        str:
+            A message indicating success or failure.
+    """
+
     try:
         subprocess.check_call(
             ["uv", "add"] + dependencies,
